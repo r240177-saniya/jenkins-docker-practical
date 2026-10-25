@@ -12,13 +12,21 @@ pipeline {
                 checkout scm
             }
         }
+        
+        stage('Check Docker') {
+            steps {
+                bat 'where docker'
+                bat 'docker --version'
+                bat 'docker ps'
+            }
+        }
 
         stage('Build') {
             steps {
                 bat 'docker build -t jenkins-web-app .'
             }
         }
-
+        
         stage('Test') {
             steps {
                 bat 'docker image inspect jenkins-web-app'
