@@ -13,13 +13,14 @@ pipeline {
             }
         }
         
-        stage('Check Docker') {
-            steps {
-                bat 'where docker'
-                bat 'docker --version'
-                bat 'docker ps'
-            }
+       
+    stage('Check Docker') {
+        steps {
+            bat '"C:\\Users\\saniy\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" --version'
+            bat '"C:\\Users\\saniy\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" ps'
         }
+}
+
 
         stage('Build') {
             steps {
